@@ -147,7 +147,7 @@ body {
 
 .sublist__button {
   position: absolute;
-  top: 300px;
+  top: 45vh;
   width: 0;
   height: 0;
   border-style: solid;
@@ -273,17 +273,4 @@ body {
   opacity: 0.2;
  }
 
- /* .timeline__toggle::before {
-  content: '';
-  position: absolute;
-  display: block;
-  top: 50% + 110px;
-  right: -15px;
-  width: 0;
-  height: 0;
-  border: 0 solid transparent;
-  border-bottom-width: 8px;
-  border-top-width: 8px;
-  border-left: 25px solid black;
-} */
 
