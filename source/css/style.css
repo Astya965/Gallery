@@ -79,7 +79,7 @@ body {
   border: 1px solid #fbf9ec;
   border-bottom: none;
 
-  transition: opacity 0.55s;
+  transition: opacity 0.95s;
   object-fit: cover;
 
   cursor: pointer;
@@ -105,7 +105,7 @@ body {
   font-style: italic;
 
   opacity: 0;
-  transition: opacity 0.65s;;
+  transition: opacity 1.65s;
 }
 
 .photo__wrapper:hover .photo__description,
@@ -137,11 +137,57 @@ body {
 }
 
 .sublist {
+  position: relative;
   display: flex;
   flex-direction: row;
   padding: 0;
 
   list-style: none;
+}
+
+.sublist__button {
+  position: absolute;
+  top: 300px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.sublist__button--left {
+  left: 10px;
+
+  border-width: 50px 25px 50px 0;
+  border-color: transparent rgb(252, 252, 252, 0.5) transparent transparent;
+}
+
+.sublist__button--left:hover {
+  border-color: transparent rgba(0, 0, 0, 1) transparent transparent;
+  transition: border-color 1630ms;
+}
+
+.sublist__button--left:active {
+  border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+  transition: border-color 1630ms;
+}
+
+.sublist__button--right {
+  right: 10px;
+
+  border-width: 50px 0 50px 25px;
+  border-color: transparent transparent transparent rgba(252, 252, 252, 0.5);
+}
+
+.sublist__button--right:hover {
+  border-color: transparent transparent transparent rgba(0, 0, 0, 1);
+  transition: border-color 1630ms;
+}
+
+.sublist__button--right:active {
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.2);
+  transition: border-color 1630ms;
 }
 
 .header {
@@ -226,4 +272,18 @@ body {
   color: #009eb5;
   opacity: 0.2;
  }
+
+ /* .timeline__toggle::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50% + 110px;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-width: 8px;
+  border-top-width: 8px;
+  border-left: 25px solid black;
+} */
 
