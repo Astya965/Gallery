@@ -69,6 +69,7 @@ body {
 }
 
 .photo__img {
+  position: relative;
   width: 80vh;
   height: 80vh;
   margin: 0;
@@ -89,6 +90,17 @@ body {
   opacity: 0.4;
 }
 
+.photo__img::before {
+  content: "";
+  position: absolute;
+  z-index: 12;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  opacity: 1;
+}
+
 .photo__description {
   position: absolute;
   top: 50%;
@@ -106,10 +118,10 @@ body {
 
   opacity: 0;
   transition: opacity 1.65s;
+  pointer-events: none;
 }
 
-.photo__wrapper:hover .photo__description,
-.photo__description:hover {
+.photo__wrapper:hover .photo__description {
   opacity: 1;
 }
 
@@ -154,6 +166,7 @@ body {
   background-color: transparent;
 
   cursor: pointer;
+  pointer-events: none;
 }
 
 .sublist__button--left {
@@ -163,7 +176,7 @@ body {
   border-color: transparent rgb(252, 252, 252, 0.5) transparent transparent;
 }
 
-.sublist__button--left:hover {
+/* .sublist__button--left:hover {
   border-color: transparent rgba(0, 0, 0, 1) transparent transparent;
   transition: border-color 1630ms;
 }
@@ -171,7 +184,7 @@ body {
 .sublist__button--left:active {
   border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
   transition: border-color 1630ms;
-}
+} */
 
 .sublist__button--right {
   right: 10px;
@@ -180,7 +193,7 @@ body {
   border-color: transparent transparent transparent rgba(252, 252, 252, 0.5);
 }
 
-.sublist__button--right:hover {
+/* .sublist__button--right:hover {
   border-color: transparent transparent transparent rgba(0, 0, 0, 1);
   transition: border-color 1630ms;
 }
@@ -188,7 +201,7 @@ body {
 .sublist__button--right:active {
   border-color: transparent transparent transparent rgba(0, 0, 0, 0.2);
   transition: border-color 1630ms;
-}
+} */
 
 .header {
   position: fixed;
