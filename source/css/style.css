@@ -234,6 +234,11 @@ input[type="radio"].visually-hidden {
 .photo--mini .photo__description {
   display: none;
 }
+@media (max-width: 780px) {
+  .photo--mini {
+    display: none;
+  }
+}
 .sublist {
   position: relative;
   display: -webkit-box;
