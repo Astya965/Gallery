@@ -2,9 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  font-size: 16px;
-  font-family: 'Roboto', "Arial", sans-serif, "Arial", sans-serif;
-  color: #000000;
+  font-size: 20px;
+  font-family: 'Roboto', "Arial", sans-serif;
+  color: #030c17;
 }
 a {
   text-decoration: none;
@@ -39,7 +39,7 @@ input[type="radio"].visually-hidden {
   width: 100%;
   min-height: 50px;
   padding-bottom: 2px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #030c17;
   background-color: #ffffff;
 }
 .header__icon {
@@ -98,7 +98,7 @@ input[type="radio"].visually-hidden {
 }
 .timeline__link {
   padding: 0 6px;
-  font-size: 18px;
+  font-size: 22px;
   color: #030c17;
   text-decoration: none;
 }
@@ -159,7 +159,7 @@ input[type="radio"].visually-hidden {
   content: url(../img/separator.svg);
   position: absolute;
   display: block;
-  bottom: 0px;
+  bottom: 0;
   right: 0;
   width: 100%;
   height: 10px;
@@ -192,16 +192,6 @@ input[type="radio"].visually-hidden {
 .photo__img:hover {
   opacity: 0.4;
 }
-.photo__img::before {
-  content: "";
-  position: absolute;
-  z-index: 12;
-  display: block;
-  width: 100px;
-  height: 100px;
-  background-color: black;
-  opacity: 1;
-}
 .photo__description {
   position: absolute;
   top: 50%;
@@ -233,7 +223,7 @@ input[type="radio"].visually-hidden {
   margin: 0;
   padding: 0;
   padding: 10px 0;
-  border: 1px solid #000000;
+  border: 1px solid #030c17;
   text-align: center;
   background-color: #ffffff;
 }
@@ -269,7 +259,7 @@ input[type="radio"].visually-hidden {
 .sublist__button--left {
   left: 10px;
   border-width: 50px 25px 50px 0;
-  border-color: transparent #fcfcfc transparent transparent;
+  border-color: transparent rgba(252, 252, 252, 0.5) transparent transparent;
 }
 /* .sublist__button--left:hover {
   border-color: transparent rgba(0, 0, 0, 1) transparent transparent;
