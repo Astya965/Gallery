@@ -4,15 +4,15 @@
 // const path = require('path');
 
 var gulp = require("gulp");
-var plumber = require("gulp-plumber");
-var sourcemap = require("gulp-sourcemaps");
-// var rename = require("gulp-rename");
-// var del = require("del");
-var server = require("browser-sync").create();
-
 var less = require("gulp-less");
+var plumber = require("gulp-plumber");
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
+var sourcemap = require("gulp-sourcemaps");
+var server = require("browser-sync").create();
+// var rename = require("gulp-rename");
+// var del = require("del");
+
 // var csso = require("gulp-csso");
 
 // var imagemin = require("gulp-imagemin");
@@ -25,7 +25,7 @@ var autoprefixer = require("autoprefixer");
 // var posthtml = require("gulp-posthtml");
 // var include = require("posthtml-include");
 
-gulp.task("style", function () {
+gulp.task("style", function (done) {
     gulp.src("source/less/style.less")
       .pipe(plumber())
       .pipe(sourcemap.init())
@@ -35,9 +35,11 @@ gulp.task("style", function () {
       ]))
       .pipe(gulp.dest("source/css"))
       .pipe(server.stream());
+
+      done();
   });
 
-  gulp.task("serve", function () {
+  gulp.task("serve", function (done) {
       server.init({
         server: "./source",
         notify: false,
@@ -46,8 +48,13 @@ gulp.task("style", function () {
         ui: false
       });
 
-      gulp.watch("source/less/**/*.less", ["style"]);
-      gulp.watch("source/*.html").on("change", server.reload);
+      gulp.watch("source/less/**/*.less", gulp.series("style"));
+      gulp.watch("source/*.html").on("change", () => {
+        server.reload();
+        done();
+      });
+
+      done();
     });
 
 // function deploy(cb) {
