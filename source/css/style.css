@@ -266,26 +266,8 @@ input[type="radio"].visually-hidden {
   border-width: 50px 25px 50px 0;
   border-color: transparent rgba(252, 252, 252, 0.5) transparent transparent;
 }
-/* .sublist__button--left:hover {
-  border-color: transparent rgba(0, 0, 0, 1) transparent transparent;
-  transition: border-color 1630ms;
-}
-
-.sublist__button--left:active {
-  border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
-  transition: border-color 1630ms;
-} */
 .sublist__button--right {
   right: 10px;
   border-width: 50px 0 50px 25px;
   border-color: transparent transparent transparent rgba(252, 252, 252, 0.5);
 }
-/* .sublist__button--right:hover {
-  border-color: transparent transparent transparent rgba(0, 0, 0, 1);
-  transition: border-color 1630ms;
-}
-
-.sublist__button--right:active {
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.2);
-  transition: border-color 1630ms;
-} */
