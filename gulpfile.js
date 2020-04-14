@@ -3,13 +3,13 @@
 // const ghPages = require('gh-pages');
 // const path = require('path');
 
-var gulp = require("gulp");
-var less = require("gulp-less");
-var plumber = require("gulp-plumber");
-var postcss = require("gulp-postcss");
-var autoprefixer = require("autoprefixer");
-var sourcemap = require("gulp-sourcemaps");
-var server = require("browser-sync").create();
+const gulp = require("gulp");
+const less = require("gulp-less");
+const plumber = require("gulp-plumber");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const sourcemap = require("gulp-sourcemaps");
+const server = require("browser-sync").create();
 // var rename = require("gulp-rename");
 // var del = require("del");
 
