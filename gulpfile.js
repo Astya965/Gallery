@@ -1,4 +1,4 @@
-"use strict";
+import {pictures, timeline} from "./source/js/data/pictures.js";
 
 // const ghPages = require('gh-pages');
 // const path = require('path');
@@ -47,7 +47,8 @@ gulp.task("fileinclude", function (done) {
   gulp.src('source/index.html')
   .pipe(fileinclude({
     context: {
-      timeline: ['2020', '2019', '2018', '2017', '2016', '2015']
+      pictures,
+      timeline
     },
     prefix: '@@',
     basepath: '@file',

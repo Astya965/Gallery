@@ -8,7 +8,7 @@
 Obj.date format YYYY-MM-DD
 *
 */
-const pictures = [
+export const pictures = [
   [{
     date: `2020-02-23`,
     description: `Прекрасная северная сказка. Сияниe, звёзды и мы.`
@@ -40,4 +40,6 @@ const pictures = [
     date: Number,
     description: `Светло и радостно. Я влюбилась и встречаю новый день среди прерасных людей.`
   }],
-]
+];
+
+export const timeline = ['2020', '2019', '2018', '2017', '2016', '2015'];
