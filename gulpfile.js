@@ -46,8 +46,12 @@ gulp.task("style", function (done) {
 gulp.task("fileinclude", function (done) {
   gulp.src('source/index.html')
   .pipe(fileinclude({
+    context: {
+      timeline: ['2020', '2019', '2018', '2017', '2016', '2015']
+    },
     prefix: '@@',
-    basepath: '@file'
+    basepath: '@file',
+
   }))
   .pipe(gulp.dest('source/'))
   .pipe(server.stream());
