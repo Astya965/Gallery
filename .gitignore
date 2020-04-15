@@ -6,7 +6,12 @@
 *.pdf
 *.psd
 *.sublime*
-build/
 node_modules/
 npm-debug.*
 Thumbs.db
+
+# Папка с собранными файлами проекта
+source/bundle.js
+source/bundle.js.map
+
+

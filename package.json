@@ -39,8 +39,8 @@
     "stylelint": "stylelint 'source/less/**/*.less' --syntax less",
     "eslint": "eslint --ext .jsx --ext .js src/",
     "test": "npm run editorconfig && npm run stylelint && npm run eslint",
-    "build": "gulp build && gulp fileinclude",
-    "start": "gulp start"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open"
   },
   "browserslist": [
     "last 2 versions",
