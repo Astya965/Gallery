@@ -11,17 +11,17 @@ const sourcemap = require("gulp-sourcemaps");
 const csso = require("gulp-csso");
 
 const server = require("browser-sync").create();
-var rename = require("gulp-rename");
-var del = require("del");
+const rename = require("gulp-rename");
+const del = require("del");
 
 
-var imagemin = require("gulp-imagemin");
+const imagemin = require("gulp-imagemin");
 
-var uglify = require("gulp-uglify");
+const uglify = require("gulp-uglify");
 
-var htmlmin = require("gulp-htmlmin");
-var posthtml = require("gulp-posthtml");
-var include = require("posthtml-include");
+const htmlmin = require("gulp-htmlmin");
+const posthtml = require("gulp-posthtml");
+const include = require("posthtml-include");
 
 function deploy(cb) {
   ghPages.publish(path.join(process.cwd(), './build'), cb);
