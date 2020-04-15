@@ -1,5 +1,3 @@
-import {pictures, timeline} from "./source/js/data/pictures.js";
-
 const ghPages = require('gh-pages');
 const path = require('path');
 
@@ -11,8 +9,6 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sourcemap = require("gulp-sourcemaps");
 const csso = require("gulp-csso");
-
-const fileinclude = require('gulp-file-include');
 
 const server = require("browser-sync").create();
 var rename = require("gulp-rename");
@@ -66,15 +62,6 @@ gulp.task("jsmin", function () {
 
 gulp.task("html", function () {
   return gulp.src("source/*.html")
-    .pipe(fileinclude({
-      context: {
-      pictures,
-      timeline
-    },
-    prefix: '@@',
-      basepath: '@file',
-
-    }))
     .pipe(posthtml([
       include()
     ]))
