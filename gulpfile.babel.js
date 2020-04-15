@@ -1,33 +1,31 @@
 import {pictures, timeline} from "./source/js/data/pictures.js";
 
-// const ghPages = require('gh-pages');
-// const path = require('path');
+const ghPages = require('gh-pages');
+const path = require('path');
 
 const gulp = require("gulp");
+const plumber = require("gulp-plumber");
 
 const less = require("gulp-less");
-const plumber = require("gulp-plumber");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sourcemap = require("gulp-sourcemaps");
+const csso = require("gulp-csso");
 
 const fileinclude = require('gulp-file-include');
 
 const server = require("browser-sync").create();
-// var rename = require("gulp-rename");
-// var del = require("del");
+var rename = require("gulp-rename");
+var del = require("del");
 
-// var csso = require("gulp-csso");
 
-// var imagemin = require("gulp-imagemin");
-// var webp = require("gulp-webp");
-// var svgstore = require("gulp-svgstore");
+var imagemin = require("gulp-imagemin");
 
-// var uglify = require("gulp-uglify");
-// var htmlmin = require("gulp-htmlmin");
+var uglify = require("gulp-uglify");
 
-// var posthtml = require("gulp-posthtml");
-// var include = require("posthtml-include");
+var htmlmin = require("gulp-htmlmin");
+var posthtml = require("gulp-posthtml");
+var include = require("posthtml-include");
 
 gulp.task("style", function (done) {
     gulp.src("source/less/style.less")
@@ -54,34 +52,34 @@ gulp.task("fileinclude", function (done) {
     basepath: '@file',
 
   }))
-  .pipe(gulp.dest('source/'))
+  .pipe(gulp.dest('build/'))
   .pipe(server.stream());
 
   done();
 });
 
 gulp.task("serve", function (done) {
-    server.init({
-      server: "./source",
-      notify: false,
-      open: true,
-      cors: true,
-      ui: false
-    });
+  server.init({
+    server: "./source",
+    notify: false,
+    open: true,
+    cors: true,
+    ui: false
+  });
 
-    gulp.watch("source/less/**/*.less", gulp.series("style"));
-    gulp.watch("source/*.html").on("change", () => {
-      server.reload();
-      done();
-    });
-
+  gulp.watch("source/less/**/*.less", gulp.series("style"));
+  gulp.watch("source/*.html").on("change", () => {
+    server.reload();
     done();
   });
 
-// function deploy(cb) {
-//   ghPages.publish(path.join(process.cwd(), './build'), cb);
-// }
-// exports.deploy = deploy;
+  done();
+});
+
+function deploy(cb) {
+  ghPages.publish(path.join(process.cwd(), './build'), cb);
+}
+exports.deploy = deploy;
 
 // gulp.task("css", function () {
 //   return gulp.src("source/less/style.less")
@@ -108,24 +106,6 @@ gulp.task("serve", function (done) {
 //     .pipe(gulp.dest("build/img"));
 // });
 
-// gulp.task("webp", function () {
-//   return gulp.src([
-//     "source/img/**/*.{png,jpg}",
-//     "!source/img/**/bg-*.{png,jpg}"
-//   ])
-//     .pipe(webp({quality: 92}))
-//     .pipe(gulp.dest("source/img"));
-// });
-
-// gulp.task("sprite", function () {
-//   return gulp.src("source/img/sprite/*.svg")
-//     .pipe(svgstore({
-//       inlineSvg: true
-//     }))
-//     .pipe(rename("sprite.svg"))
-//     .pipe(gulp.dest("build/img"));
-// });
-
 // gulp.task("jsmin", function () {
 //   return gulp.src("source/js/*.js")
 //     .pipe(uglify())
@@ -144,10 +124,8 @@ gulp.task("serve", function (done) {
 
 // gulp.task("copy", function () {
 //   return gulp.src([
-//     "source/fonts/**/*.{woff,woff2}",
 //     "source/img/**",
-//     "source/js/**",
-//     "source/*.ico"
+//     "source/js/**"
 //   ], {
 //     base: "source"
 //   })
@@ -175,8 +153,9 @@ gulp.task("serve", function (done) {
 //   gulp.watch("source/less/**/*.less", gulp.series("css"));
 //   gulp.watch("source/img/sprite/*.svg", gulp.series("sprite", "html", "refresh"));
 //   gulp.watch("source/js/*.js", gulp.series("jsmin", "refresh"));
+//   gulp.watch("source/**/*.html", gulp.series("fileinclude", "html", "refresh"));
 //   gulp.watch("source/*.html", gulp.series("html", "refresh"));
 // });
 
-// gulp.task("build", gulp.series("clean", "copy", "css", "sprite", "jsmin", "html"));
+// gulp.task("build", gulp.series("clean", "copy", "css", "jsmin", "fileinclude", "html"));
 // gulp.task("start", gulp.series("build", "server"));
