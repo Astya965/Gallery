@@ -17,14 +17,14 @@ const del = require("del");
 
 const imagemin = require("gulp-imagemin");
 
-const uglify = require("gulp-uglify");
+// const uglify = require("gulp-uglify");
 
 const htmlmin = require("gulp-htmlmin");
 const posthtml = require("gulp-posthtml");
 const include = require("posthtml-include");
 
 function deploy(cb) {
-  ghPages.publish(path.join(process.cwd(), './build'), cb);
+  ghPages.publish(path.join(process.cwd(), './public'), cb);
 }
 exports.deploy = deploy;
 
@@ -39,7 +39,7 @@ gulp.task("css", function () {
     .pipe(csso())
     .pipe(rename("style.min.css"))
     .pipe(sourcemap.write("."))
-    .pipe(gulp.dest("build/css"))
+    .pipe(gulp.dest("public/css"))
     .pipe(server.stream());
 });
 
@@ -50,15 +50,15 @@ gulp.task("images", function () {
       imagemin.jpegtran({progressive: true}),
       imagemin.svgo()
     ]))
-    .pipe(gulp.dest("build/img"));
+    .pipe(gulp.dest("public/img"));
 });
 
-gulp.task("jsmin", function () {
-  return gulp.src("source/js/*.js")
-    .pipe(uglify())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest("build/js"));
-});
+// gulp.task("jsmin", function () {
+//   return gulp.src("source/js/*.js")
+//     .pipe(uglify())
+//     .pipe(rename({suffix: '.min'}))
+//     .pipe(gulp.dest("public/js"));
+// });
 
 gulp.task("html", function () {
   return gulp.src("source/*.html")
@@ -66,7 +66,7 @@ gulp.task("html", function () {
       include()
     ]))
     .pipe(htmlmin())
-    .pipe(gulp.dest("build"));
+    .pipe(gulp.dest("public"));
 });
 
 gulp.task("copy", function () {
@@ -76,11 +76,11 @@ gulp.task("copy", function () {
   ], {
     base: "source"
   })
-    .pipe(gulp.dest("build"));
+    .pipe(gulp.dest("public"));
 });
 
 gulp.task("clean", function () {
-  return del("build");
+  return del("public");
 });
 
 gulp.task("refresh", function (done) {
@@ -90,7 +90,7 @@ gulp.task("refresh", function (done) {
 
 gulp.task("server", function () {
   server.init({
-    server: "build/",
+    server: "public/",
     notify: false,
     open: true,
     cors: true,
@@ -102,5 +102,5 @@ gulp.task("server", function () {
   gulp.watch("source/**/*.html", gulp.series("html", "refresh"));
 });
 
-gulp.task("build", gulp.series("clean", "copy", "css", "jsmin", "html"));
-gulp.task("start", gulp.series("build", "server"));
+gulp.task("gulpbuild", gulp.series("clean", "copy", "css", "html"));
+gulp.task("start", gulp.series("gulpbuild", "server"));

@@ -6,11 +6,9 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "7.9.4",
     "@babel/register": "^7.9.0",
     "@htmlacademy/editorconfig-cli": "1.x",
     "autoprefixer": "9.5.x",
-    "babel-loader": "8.1.0",
     "browser-sync": "2.26.x",
     "del": "^5.1.0",
     "eslint": "6.8.0",
@@ -39,6 +37,7 @@
     "stylelint": "stylelint 'source/less/**/*.less' --syntax less",
     "eslint": "eslint --ext .jsx --ext .js src/",
     "test": "npm run editorconfig && npm run stylelint && npm run eslint",
+    "gulpbuild": "gulp gulpbuild",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open"
   },
