@@ -27,55 +27,6 @@ var htmlmin = require("gulp-htmlmin");
 var posthtml = require("gulp-posthtml");
 var include = require("posthtml-include");
 
-// gulp.task("style", function (done) {
-//     gulp.src("source/less/style.less")
-//       .pipe(plumber())
-//       .pipe(sourcemap.init())
-//       .pipe(less())
-//       .pipe(postcss([
-//         autoprefixer()
-//       ]))
-//       .pipe(gulp.dest("source/css"))
-//       .pipe(server.stream());
-
-//       done();
-//   });
-
-// gulp.task("fileinclude", function (done) {
-//   gulp.src('source/index.html')
-//   .pipe(fileinclude({
-//     context: {
-//       pictures,
-//       timeline
-//     },
-//     prefix: '@@',
-//     basepath: '@file',
-
-//   }))
-//   .pipe(gulp.dest('build/'))
-//   .pipe(server.stream());
-
-//   done();
-// });
-
-// gulp.task("serve", function (done) {
-//   server.init({
-//     server: "./source",
-//     notify: false,
-//     open: true,
-//     cors: true,
-//     ui: false
-//   });
-
-//   gulp.watch("source/less/**/*.less", gulp.series("style"));
-//   gulp.watch("source/*.html").on("change", () => {
-//     server.reload();
-//     done();
-//   });
-
-//   done();
-// });
-
 function deploy(cb) {
   ghPages.publish(path.join(process.cwd(), './build'), cb);
 }
@@ -115,6 +66,15 @@ gulp.task("jsmin", function () {
 
 gulp.task("html", function () {
   return gulp.src("source/*.html")
+    .pipe(fileinclude({
+      context: {
+      pictures,
+      timeline
+    },
+    prefix: '@@',
+      basepath: '@file',
+
+    }))
     .pipe(posthtml([
       include()
     ]))
@@ -152,8 +112,8 @@ gulp.task("server", function () {
 
   gulp.watch("source/less/**/*.less", gulp.series("css"));
   gulp.watch("source/js/*.js", gulp.series("jsmin", "refresh"));
-  gulp.watch("source/**/*.html", gulp.series("fileinclude", "html", "refresh"));
+  gulp.watch("source/**/*.html", gulp.series("html", "refresh"));
 });
 
-gulp.task("build", gulp.series("clean", "copy", "css", "jsmin", "fileinclude", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "jsmin", "html"));
 gulp.task("start", gulp.series("build", "server"));

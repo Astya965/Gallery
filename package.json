@@ -33,8 +33,8 @@
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint 'source/less/**/*.less' --syntax less",
     "test": "npm run editorconfig && npm run stylelint",
-    "build": "gulp style && gulp fileinclude",
-    "start": "gulp serve"
+    "build": "gulp build && gulp fileinclude",
+    "start": "gulp start"
   },
   "browserslist": [
     "last 2 versions",
