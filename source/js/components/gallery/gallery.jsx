@@ -16,7 +16,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <li className="sublist__item photo">
               <figure className="photo__main">
@@ -27,7 +27,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <li className="sublist__item photo photo--mini">
               <figure className="photo__main">
@@ -38,7 +38,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <button className="sublist__button sublist__button--left"></button>
             <button className="sublist__button sublist__button--right"></button>
@@ -55,7 +55,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <button className="sublist__button sublist__button--left"></button>
             <button className="sublist__button sublist__button--right"></button>
@@ -70,7 +70,7 @@ const Gallery = (props) => {
               </a>
             </div>
           </figure>
-          <p className="photo__date"><time datetime="2020-02-23">23.02.2020</time></p>
+          <p className="photo__date"><time dateTime="2020-02-23">23.02.2020</time></p>
         </li>
         <li className="gallery__item">
           <ul className="gallery__sublist sublist">
@@ -83,7 +83,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <li className="sublist__item photo">
               <figure className="photo__main">
@@ -94,7 +94,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <li className="sublist__item photo photo--mini">
               <figure className="photo__main">
@@ -105,7 +105,7 @@ const Gallery = (props) => {
                   </a>
                 </div>
               </figure>
-              <p className="photo__date"><time datetime="2019-04-28">28.04.2019</time></p>
+              <p className="photo__date"><time dateTime="2019-04-28">28.04.2019</time></p>
             </li>
             <button className="sublist__button sublist__button--left"></button>
             <button className="sublist__button sublist__button--right"></button>
@@ -120,7 +120,7 @@ const Gallery = (props) => {
               </a>
             </div>
           </figure>
-          <p className="photo__date"><time datetime="2019-07-21">21.07.2019</time></p>
+          <p className="photo__date"><time dateTime="2019-07-21">21.07.2019</time></p>
         </li>
     </ul>
   );
