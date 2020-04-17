@@ -7,7 +7,7 @@ const App = (props) => {
 
   return (
     <React.Fragment>
-      <Header/>
+      <Header timeline={timeline}/>
       <div className="wrapper">
         <Gallery/>
       </div>
