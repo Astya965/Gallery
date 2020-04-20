@@ -1,21 +1,10 @@
 .photo {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   margin: 10px;
-}
-
-.photo:not(.photo--mini)::after {
-  content: url(../img/separator.svg);
-  position: absolute;
-  display: block;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 10px;
 }
 
 .photo__wrapper {
@@ -78,7 +67,7 @@
 }
 
 .photo__date {
-  width: 100%;
+  width: 80vh;
   margin: 0;
   padding: 0;
   padding: 10px 0;
