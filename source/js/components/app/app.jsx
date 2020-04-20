@@ -3,13 +3,13 @@ import Header from "../header/header.jsx";
 import Gallery from "../gallery/gallery.jsx";
 
 const App = (props) => {
-  const {timeline} = props;
+  const {pictures, timeline} = props;
 
   return (
     <React.Fragment>
       <Header timeline={timeline}/>
       <div className="wrapper">
-        <Gallery/>
+        <Gallery pictures={pictures}/>
       </div>
     </React.Fragment>
   );
