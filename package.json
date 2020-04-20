@@ -45,7 +45,8 @@
     "gulpbuild": "gulp gulpbuild",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d public",
+    "publish-demo": "npm run build && npm run deploy"
   },
   "browserslist": [
     "last 2 versions",
