@@ -53,13 +53,6 @@ gulp.task("images", function () {
     .pipe(gulp.dest("public/img"));
 });
 
-// gulp.task("jsmin", function () {
-//   return gulp.src("source/js/*.js")
-//     .pipe(uglify())
-//     .pipe(rename({suffix: '.min'}))
-//     .pipe(gulp.dest("public/js"));
-// });
-
 gulp.task("html", function () {
   return gulp.src("source/*.html")
     .pipe(posthtml([
@@ -71,8 +64,7 @@ gulp.task("html", function () {
 
 gulp.task("copy", function () {
   return gulp.src([
-    "source/img/**",
-    "source/js/**"
+    "source/img/**"
   ], {
     base: "source"
   })
