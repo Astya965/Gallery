@@ -6,15 +6,38 @@
   padding: 0;
   padding-top: 40px;
 
-  list-style: none;
-
   background-image: url(../img/back1.jpg);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .gallery__item {
+  position: relative;
   display: flex;
   justify-content: center;
+  width: 80vh;
   height: 100vh;
+  margin-bottom: 10px;
 }
+
+.gallery__item--slider {
+  position: relative;
+  width: 50%;
+}
+
+.gallery__item::after,
+.gallery__item--slider + .gallery__item::before {
+  content: url(../img/separator.svg);
+  position: absolute;
+  display: block;
+  bottom: 15px;
+  right: 0;
+  width: 80vh;
+  height: 10px;
+}
+
+
+.gallery__item--slider + .gallery__item::before {
+  top: 0;
+}
+
