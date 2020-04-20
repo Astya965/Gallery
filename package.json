@@ -1,4 +1,5 @@
 {
+  "homepage": "http://astya965.github.io/Gallery",
   "name": "gallery",
   "version": "17.0.0",
   "private": true,
@@ -43,7 +44,8 @@
     "test": "npm run editorconfig && npm run stylelint && npm run eslint",
     "gulpbuild": "gulp gulpbuild",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     "last 2 versions",
