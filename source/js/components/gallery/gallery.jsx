@@ -9,20 +9,21 @@ const Gallery = (props) => {
     className: 'gallery__item--slider',
     centerMode: true,
     initialSlide: 1,
+    duration: 800,
   };
 
   return (
     <div className="gallery">
       {pictures.map((picture) => (
-        picture.src.length > 1 ?
+        picture.length > 1 ?
         <Slider {...settings}>
-          {picture.src.map((photo, i) => (
-            <Photo adress={photo} key={photo + `-${i}`}/>
+          {picture.map((photo, i) => (
+            <Photo info={photo} key={photo.src + `-${i}`}/>
           ))}
         </Slider>
         :
         <div className='gallery__item'>
-          <Photo adress={picture.src[0]} key={picture.src[0]}/>
+          <Photo info={picture[0]} key={picture[0].src}/>
         </div>
       ))}
     </div>
