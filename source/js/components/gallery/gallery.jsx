@@ -9,7 +9,10 @@ const Gallery = (props) => {
     className: 'gallery__item--slider',
     centerMode: true,
     initialSlide: 1,
+    slidesToShow: 1,
+    centerPadding: 0,
     duration: 800,
+
   };
 
   return (
