@@ -6,6 +6,8 @@
 
 .timeline__toggle {
   position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 30px;
   padding-right: 40px;
 
@@ -60,4 +62,11 @@
  .timeline__link:active {
   color: @link--hover;
   opacity: 0.2;
+ }
+
+ @media (max-width: @mobile-width) {
+  .timeline__list {
+    flex-direction: column;
+    width: 100%;
+  }
  }
