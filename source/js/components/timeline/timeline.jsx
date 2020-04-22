@@ -1,20 +1,33 @@
-import React from "react";
+import React, {PureComponent} from "react";
 
-const Timeline = (props) => {
-  const {timeline} = props;
+class Timeline extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="header__timeline timeline">
-      <button className="timeline__toggle" type="button">Timeline ⟶</button>
+    this._onButtonToggle = this._onButtonToggle.bind(this);
+  }
+
+  _onButtonToggle() {
+    const list = document.querySelector(`.timeline__list`);
+
+    list.classList.toggle(`visually-hidden`);
+    console.log(1);
+  }
+
+  render() {
+    return (
+      <div className="header__timeline timeline">
+      <button className="timeline__toggle" type="button" onClick={this._onButtonToggle}>Timeline ⟶</button>
       <ul className="timeline__list">
-        {timeline.map((year, i) => (
+        {this.props.timeline.map((year, i) => (
           <li className="timeline__date" key={year + `-${i}`}>
             <a className="timeline__link" href="#">{year}</a>
           </li>
         ))}
       </ul>
     </div>
-  );
-};
+    );
+  }
+}
 
 export default Timeline;
