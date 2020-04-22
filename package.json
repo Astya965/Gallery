@@ -43,7 +43,7 @@
     "eslint": "eslint --ext .jsx --ext .js src/",
     "test": "npm run editorconfig && npm run stylelint && npm run eslint",
     "gulpbuild": "gulp gulpbuild",
-    "build": "webpack --mode production",
+    "build": "gulp gulpbuild && webpack --mode production",
     "start": "webpack-dev-server --open",
     "deploy": "gh-pages -d public",
     "publish-demo": "npm run build && npm run deploy"
